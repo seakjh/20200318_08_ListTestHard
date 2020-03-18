@@ -3,7 +3,11 @@ package com.example.a20200318_08_listtesthard;
 import androidx.databinding.DataBindingUtil;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.Adapter;
+import android.widget.AdapterView;
+import android.widget.Toast;
 
 import com.example.a20200318_08_listtesthard.adapters.RoomAdapter;
 import com.example.a20200318_08_listtesthard.databinding.ActivityMainBinding;
@@ -30,6 +34,19 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void setupEvents() {
+
+        binding.roomListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.i("리스트뷰 아이템 클릭", String.format("%d번 줄 클릭", position));
+
+//                클릭된 방의 주소를 토스트로 출력
+                Room clickekRoom = roomDatas.get(position);
+
+                Toast.makeText(mContext, clickekRoom.getAddress(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
     }
 
