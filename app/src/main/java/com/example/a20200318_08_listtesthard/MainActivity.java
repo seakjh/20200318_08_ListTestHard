@@ -40,11 +40,17 @@ public class MainActivity extends BaseActivity {
 
         binding.roomListView.setAdapter(roomAdapter);
 
-        addRoom();
+        addRooms();
 
     }
 
-    void addRoom(){
-        roomDatas.add(new Room(8000, "종로구 종각", -1, "넓음"));
+    void addRooms(){
+        roomDatas.add(new Room(8000, "서울시 종로구", 5, "살기 좋음"));
+        roomDatas.add(new Room(25000, "서울시 노원구", 6, "노원구의 투룸"));
+        roomDatas.add(new Room(18000, "서울시 은평구", 7, "은평구의 투룸"));
+        roomDatas.add(new Room(7000, "경기도 부천시", -1, "부천시 원룸"));
+        roomDatas.add(new Room(8000, "경기도 고양시", 0, "고양시 단독주택"));
+
+        roomAdapter.notifyDataSetChanged();
     }
 }

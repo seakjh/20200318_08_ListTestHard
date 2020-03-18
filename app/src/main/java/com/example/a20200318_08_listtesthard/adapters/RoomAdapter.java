@@ -42,7 +42,7 @@ public class RoomAdapter extends ArrayAdapter<Room> {
             row = inf.inflate(R.layout.room_list_item, null);
         }
 
-        Room data = mList
+//        Room data = mList
 
         return row;
 
