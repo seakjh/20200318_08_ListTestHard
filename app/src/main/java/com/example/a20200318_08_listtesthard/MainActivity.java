@@ -41,10 +41,22 @@ public class MainActivity extends BaseActivity {
                 Log.i("리스트뷰 아이템 클릭", String.format("%d번 줄 클릭", position));
 
 //                클릭된 방의 주소를 토스트로 출력
-                Room clickekRoom = roomDatas.get(position);
+                Room clickedRoom = roomDatas.get(position);
 
-                Toast.makeText(mContext, clickekRoom.getAddress(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, clickedRoom.getAddress(), Toast.LENGTH_SHORT).show();
 
+            }
+        });
+
+        binding.roomListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Room data = roomDatas.get(position);
+
+                Toast.makeText(mContext, data.getExplanation(), Toast.LENGTH_SHORT).show();
+
+                return true; // true : 롱클릭만 , false : 그냥 클릭도 같이
             }
         });
 
