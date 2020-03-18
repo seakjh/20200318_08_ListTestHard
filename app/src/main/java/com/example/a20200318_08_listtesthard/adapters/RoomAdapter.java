@@ -46,8 +46,8 @@ public class RoomAdapter extends ArrayAdapter<Room> {
         Room data = mList.get(position);
 
         TextView priceTxt = row.findViewById(R.id.priceTxt);
-        TextView addressAndFloorTxt = row.findViewById(R.id.priceTxt);
-        TextView explanTxt = row.findViewById(R.id.priceTxt);
+        TextView addressAndFloorTxt = row.findViewById(R.id.addressAndFloorTxt);
+        TextView explanTxt = row.findViewById(R.id.explanTxt);
 
 //        가격 설정 => setText에는 int값을 넣지말자
 //        1만 이상이면 억단위 아니면 그냥 숫자만 표시 , 찍어서
@@ -63,6 +63,25 @@ public class RoomAdapter extends ArrayAdapter<Room> {
             priceTxt.setText(String.format("%,d", data.getPrice()));
         }
 
+//        주소와 층수를 결합해서 .
+        String floorstr = "";
+//        층 > 0 층 == 0 , 그외 층 < 0
+        if(data.getFloor() > 0){
+            floorstr = String.format("%d층", data.getFloor());
+        }
+        else if (data.getFloor() == 0){
+//            0 => 반지하
+            floorstr = "반지하";
+        }
+        else {
+//            -1 => 지하 1층으로 가공
+            floorstr = String.format("지하 %d층", data.getFloor()*-1);
+        }
+
+        addressAndFloorTxt.setText(String.format("%s, %s", data.getAddress(), floorstr));
+
+//        설명은 들어온 그대로 출력
+        explanTxt.setText(data.getExplanation());
 
         return row;
 
