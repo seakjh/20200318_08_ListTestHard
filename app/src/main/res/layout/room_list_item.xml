@@ -20,9 +20,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginLeft="10dp">
+            android:layout_marginLeft="15dp">
 
             <TextView
+                android:id="@+id/priceTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2억 8,500"
@@ -31,6 +32,7 @@
                 android:textColor="#F17912"/>
 
             <TextView
+                android:id="@+id/addressAndFloorTxt"
                 android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -38,6 +40,7 @@
                 android:textColor="#000"/>
 
             <TextView
+                android:id="@+id/explanTxt"
                 android:layout_marginTop="2dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

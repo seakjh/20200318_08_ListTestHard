@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -42,7 +43,26 @@ public class RoomAdapter extends ArrayAdapter<Room> {
             row = inf.inflate(R.layout.room_list_item, null);
         }
 
-//        Room data = mList
+        Room data = mList.get(position);
+
+        TextView priceTxt = row.findViewById(R.id.priceTxt);
+        TextView addressAndFloorTxt = row.findViewById(R.id.priceTxt);
+        TextView explanTxt = row.findViewById(R.id.priceTxt);
+
+//        가격 설정 => setText에는 int값을 넣지말자
+//        1만 이상이면 억단위 아니면 그냥 숫자만 표시 , 찍어서
+        if (data.getPrice() >= 10000){
+//            ?억 %,d
+            int billion = data.getPrice() / 10000;
+            int thousand = data.getPrice() % 10000;
+
+            priceTxt.setText(String.format("%d억 %,d", billion, thousand));
+
+        }
+        else{
+            priceTxt.setText(String.format("%,d", data.getPrice()));
+        }
+
 
         return row;
 
