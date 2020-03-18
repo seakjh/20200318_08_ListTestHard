@@ -51,17 +51,18 @@ public class RoomAdapter extends ArrayAdapter<Room> {
 
 //        가격 설정 => setText에는 int값을 넣지말자
 //        1만 이상이면 억단위 아니면 그냥 숫자만 표시 , 찍어서
-        if (data.getPrice() >= 10000){
-//            ?억 %,d
-            int billion = data.getPrice() / 10000;
-            int thousand = data.getPrice() % 10000;
-
-            priceTxt.setText(String.format("%d억 %,d", billion, thousand));
-
-        }
-        else{
-            priceTxt.setText(String.format("%,d", data.getPrice()));
-        }
+//        if (data.getPrice() >= 10000){
+////            ?억 %,d
+//            int billion = data.getPrice() / 10000;
+//            int thousand = data.getPrice() % 10000;
+//
+//            priceTxt.setText(String.format("%d억 %,d", billion, thousand));
+//
+//        }
+//        else{
+//            priceTxt.setText(String.format("%,d", data.getPrice()));
+//        }
+        priceTxt.setText(data.getFormattedPrice());
 
 //        주소와 층수를 결합해서 .
         String floorstr = "";
