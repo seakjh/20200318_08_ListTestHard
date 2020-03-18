@@ -33,6 +33,10 @@ public class RoomDetailActivity extends BaseActivity {
 
         binding.priceTxt.setText(room.getFormattedPrice());
 
+        binding.floorTxt.setText(room.getFloorToString());
+
+        binding.addressTxt.setText(room.getAddress());
+
         binding.explanTxt.setText(room.getExplanation());
 
     }

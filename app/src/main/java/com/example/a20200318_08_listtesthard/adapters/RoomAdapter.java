@@ -64,22 +64,22 @@ public class RoomAdapter extends ArrayAdapter<Room> {
 //        }
         priceTxt.setText(data.getFormattedPrice());
 
-//        주소와 층수를 결합해서 .
-        String floorstr = "";
-//        층 > 0 층 == 0 , 그외 층 < 0
-        if(data.getFloor() > 0){
-            floorstr = String.format("%d층", data.getFloor());
-        }
-        else if (data.getFloor() == 0){
-//            0 => 반지하
-            floorstr = "반지하";
-        }
-        else {
-//            -1 => 지하 1층으로 가공
-            floorstr = String.format("지하 %d층", data.getFloor()*-1);
-        }
+////        주소와 층수를 결합해서 .
+//        String floorstr = "";
+////        층 > 0 층 == 0 , 그외 층 < 0
+//        if(data.getFloor() > 0){
+//            floorstr = String.format("%d층", data.getFloor());
+//        }
+//        else if (data.getFloor() == 0){
+////            0 => 반지하
+//            floorstr = "반지하";
+//        }
+//        else {
+////            -1 => 지하 1층으로 가공
+//            floorstr = String.format("지하 %d층", data.getFloor()*-1);
+//        }
 
-        addressAndFloorTxt.setText(String.format("%s, %s", data.getAddress(), floorstr));
+        addressAndFloorTxt.setText(String.format("%s, %s", data.getAddress(), data.getFloorToString()));
 
 //        설명은 들어온 그대로 출력
         explanTxt.setText(data.getExplanation());
